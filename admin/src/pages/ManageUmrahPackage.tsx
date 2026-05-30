@@ -24,6 +24,8 @@ interface PackageData {
 
   packageName: string;
 
+  supplier?: string;
+
   availableRooms?: number;
 
   days?: number;
@@ -275,6 +277,7 @@ const ManageUmrahPackage = () => {
                   {[
                     "Sr. No",
                     "Package Name",
+                    "Supplier",
                     "Available Packages",
                     "No Of Days",
                     "Hotel Name",
@@ -283,7 +286,7 @@ const ManageUmrahPackage = () => {
                     <TableCell
                       key={idx}
                       isHeader
-                      className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
+                      className={`px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400 ${header === "Action" ? "w-72 text-center!" : ""}`}
                     >
                       {header}
                     </TableCell>
@@ -316,6 +319,10 @@ const ManageUmrahPackage = () => {
                       </TableCell>
 
                       <TableCell className="px-4 py-3 text-start">
+                        {pkg.supplier || "-"}
+                      </TableCell>
+
+                      <TableCell className="px-4 py-3 text-start">
                         {pkg.availableRooms ?? "-"}
                       </TableCell>
 
@@ -330,7 +337,7 @@ const ManageUmrahPackage = () => {
                       </TableCell>
 
                       <TableCell className="px-4 py-3 text-start">
-                        <div className="flex items-center gap-3 flex-wrap">
+                        <div className="flex justify-center items-center gap-3 flex-wrap">
                           {/* VIEW */}
 
                           <button
@@ -397,6 +404,11 @@ const ManageUmrahPackage = () => {
                   {selectedPackage.days} Days •{" "}
                   {selectedPackage.nightCount}
                 </p>
+                {selectedPackage.supplier && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    Supplier: {selectedPackage.supplier}
+                  </p>
+                )}
               </div>
 
               <button

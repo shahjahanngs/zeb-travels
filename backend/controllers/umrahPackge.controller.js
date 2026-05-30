@@ -10,6 +10,7 @@ export const createPackages = async (req, res) => {
     // Body fields
     const {
       packageName,
+      supplier,
       hotels,
       transports,
       rooms,
@@ -49,6 +50,7 @@ export const createPackages = async (req, res) => {
       ...(logo && { logo }),
       ...(flightLogo && { flightLogo }),
       packageName,
+      supplier: supplier || "",
       hotels: parsedHotels,
       transports: parsedTransports,
       rooms: parsedRooms,
@@ -127,6 +129,7 @@ export const updatePackage = async (req, res) => {
 
     const {
       packageName,
+      supplier,
       hotels,
       transports,
       rooms,
@@ -162,6 +165,7 @@ export const updatePackage = async (req, res) => {
         ...(logo && { logo }),
         ...(flightLogo && { flightLogo }),
         packageName,
+        supplier: supplier || "",
         hotels: parsedHotels,
         transports: parsedTransports,
         rooms: parsedRooms,

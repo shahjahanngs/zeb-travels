@@ -63,6 +63,10 @@ const UmrahPackageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    supplier: {
+      type: String,
+      default: "",
+    },
     logo: {
       type: String,
       // required: true,

@@ -64,6 +64,7 @@ interface GroupTicketData {
 
 interface FormValues {
   packageName: string;
+  supplier: string;
   logo: string;
   flightLogo: string;
   hotels: HotelForm[];
@@ -306,6 +307,7 @@ const UmrahPackage = () => {
   const formik = useFormik<FormValues>({
     initialValues: {
       packageName: "",
+      supplier: "",
       logo: "",
       flightLogo: "",
       hotels: [{ name: "", location: { city: "", distance: "", mapUrl: "" }, rating: 0 }],
@@ -319,6 +321,7 @@ const UmrahPackage = () => {
     },
     validationSchema: Yup.object({
       packageName: Yup.string().required("Package name is required"),
+      supplier: Yup.string(),
       logo: Yup.string(),
       flightLogo: Yup.string(),
       hotels: Yup.array().min(1, "Select at least one hotel"),
@@ -341,6 +344,7 @@ const UmrahPackage = () => {
         if (logoFile) formData.append("logo", logoFile);
         if (flightLogoFile) formData.append("flightLogo", flightLogoFile);
         formData.append("packageName", values.packageName);
+        formData.append("supplier", values.supplier);
         formData.append("availableRooms", values.availableRooms?.toString() || "0");
         formData.append("days", values.days?.toString() || "0");
         formData.append("nightCount", values.nightCount || "0");
@@ -388,6 +392,7 @@ const UmrahPackage = () => {
       if (logoFile) formData.append("logo", logoFile);
       if (flightLogoFile) formData.append("flightLogo", flightLogoFile);
       formData.append("packageName", formik.values.packageName);
+      formData.append("supplier", formik.values.supplier);
       formData.append("availableRooms", formik.values.availableRooms?.toString() || "0");
       formData.append("days", formik.values.days?.toString() || "0");
       formData.append("nightCount", formik.values.nightCount || "0");
@@ -404,6 +409,7 @@ const UmrahPackage = () => {
       console.log("Package created:", res.data.package);
 
       formik.setFieldValue("packageName", "");
+      formik.setFieldValue("supplier", "");
       formik.setFieldValue("logo", "");
       formik.setFieldValue("hotels", [{ name: "", location: { city: "", distance: "", mapUrl: "" }, rating: 0 }]);
       formik.setFieldValue("rooms", { sharing: "", quad: "", quint: "", triple: "", double: "", childWithoutPackage: "", InfantWithoutPackage: "" });
@@ -476,7 +482,7 @@ const UmrahPackage = () => {
           {/* ── Section 1: Package Basic Info ── */}
           <div>
             <SectionHeading color="text-indigo-600 dark:text-indigo-400 border-indigo-500" icon="📝" title="Package Basic Information" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
               <div>
                 <label className={labelClass}>Package Name</label>
                 <input type="text" name="packageName" onChange={formik.handleChange} value={formik.values.packageName}
@@ -484,6 +490,11 @@ const UmrahPackage = () => {
                 {formik.touched.packageName && formik.errors.packageName && (
                   <p className="text-red-500 text-xs mt-0.5">{formik.errors.packageName}</p>
                 )}
+              </div>
+              <div>
+                <label className={labelClass}>Supplier</label>
+                <input type="text" name="supplier" onChange={formik.handleChange} value={formik.values.supplier}
+                  className={inputClass} placeholder="Enter supplier name" />
               </div>
               <div>
                 <label className={labelClass}>Logo</label>
