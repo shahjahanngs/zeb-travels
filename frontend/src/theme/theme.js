@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     // Primary - Dark Blue + Purple Theme
-    primary: "linear-gradient(135deg, #1e1b4b, #6d28d9, #a855f7)",
+    primary: "linear-gradient(135deg, #750B0B, #D92B2B, #C22525)",
     primaryDark: "#141042", // Deep Indigo
     primaryLight: "#7C3AED", // Violet 600
     primaryLighter: "#EDE9FE", // Violet 100
@@ -19,7 +19,7 @@ export const theme = {
     secondaryLight: "#f8fafc",
 
     // Accent - Soft Purple
-    accent: "#7C3AED",
+    accent: "#D92B2B",
     accentDark: "#5B21B6",
     accentLight: "#A78BFA",
 

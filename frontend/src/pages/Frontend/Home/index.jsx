@@ -21,7 +21,7 @@ export default function Home({ user, onLogin }) {
   return (
     <>
       <HeroSection onLogin={onLogin} user={user} />
-      <CommonSections />
+      <CommonSections user={user} />
       <SpecialOfferModal isOpen={showPopup} onClose={() => setShowPopup(false)} />
     </>
   );

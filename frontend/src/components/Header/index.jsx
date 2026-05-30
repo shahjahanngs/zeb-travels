@@ -1,23 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import logo from "../../assets/images/logo.webp"; // Make sure this is your new HD PNG
+// import logo from "../../assets/images/logo.webp"; // Make sure this is your new HD PNG
 import { CiMenuFries } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
-import { groupTypes } from "../../data/groupTypes";
+// import { groupTypes } from "../../data/groupTypes";
 import {
   Link,
-  useNavigate,
-  useLocation,
-  useSearchParams,
+  // useNavigate,
+  // useLocation,
+  // useSearchParams,
 } from "react-router-dom";
 import OldHeader from "./OldHeader";
 
 export default function Header({ user, handleLogout }) {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const profileRef = useRef(null);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [searchParams] = useSearchParams();
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const [searchParams] = useSearchParams();
   const [hasToken, setHasToken] = useState(() => {
     return !!localStorage.getItem("frontend_token");
   });
@@ -60,9 +60,9 @@ export default function Header({ user, handleLogout }) {
     };
   }, [profileOpen]);
 
-  const activeGroupTypes = searchParams
-    .getAll("group_type")
-    .map((g) => g.toLowerCase().trim());
+  // const activeGroupTypes = searchParams
+  //   .getAll("group_type")
+  //   .map((g) => g.toLowerCase().trim());
 
   return <OldHeader user={user} handleLogout={handleLogout} hasToken={hasToken} />;
 }

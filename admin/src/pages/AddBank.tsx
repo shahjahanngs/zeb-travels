@@ -173,7 +173,7 @@ const AddBank = () => {
 
   return (
     <>
-      <PageMeta title="Add New Bank - AlmamorahTravel" description="Manage and add bank accounts for AlmamorahTravel" />
+      <PageMeta title="Add New Bank - ZEB Travels & Traders Pvt Ltd" description="Manage and add bank accounts for ZEB Travels & Traders Pvt Ltd" />
 
       <div className="mb-6">
         <PageBreadCrumb pageTitle="Add New Bank" />

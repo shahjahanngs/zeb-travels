@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axiosInstance from "../../../api/axios";
 import { toast } from "react-toastify";
-import countryCodes from "../../../data/countryCodes.json"; // adjust path
+import countryCodes from "../../../data/countryCodes.json";
 import Select from "react-select";
 import Header from "../../../components/Header";
 import CommonSections from "../../../components/CommonSections";
-import bg from "../../../assets/images/bahrain.webp";
+import bg from "../../../assets/images/madina.jpg";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -82,10 +82,10 @@ const Register = () => {
       minHeight: 50,
       height: 50,
       backgroundColor: "#f8f9fb",
-      borderColor: state.isFocused ? "#2A166D" : "#d1d5db",
-      boxShadow: state.isFocused ? "0 0 0 2px rgba(42, 22, 109, 0.15)" : "none",
+      borderColor: state.isFocused ? "#D92B2B" : "#d1d5db",
+      boxShadow: state.isFocused ? "0 0 0 2px rgba(217, 43, 43, 0.15)" : "none",
       "&:hover": {
-        borderColor: state.isFocused ? "#2A166D" : "#cbd5e1",
+        borderColor: state.isFocused ? "#D92B2B" : "#cbd5e1",
       },
     }),
     valueContainer: (base) => ({
@@ -122,10 +122,9 @@ const Register = () => {
         className="min-h-screen w-full flex flex-col items-center justify-start bg-no-repeat bg-cover bg-center bg-fixed relative pt-36 md:pt-42 lg:pt-48"
         style={{
           backgroundImage: `url(${bg})`,
-          backgroundColor: "#000000",
         }}
       >
-        <div className="absolute inset-0 bg-black/55 z-0" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-black/20 z-0" />
 
         <div className="z-10 flex justify-center w-full px-4 md:px-6 mb-20 relative">
           <div className="w-full max-w-2xl rounded-2xl bg-white/95 shadow-2xl p-6 md:p-8 lg:p-10 flex flex-col gap-8 border border-white/70 backdrop-blur-md">
@@ -137,7 +136,7 @@ const Register = () => {
                 Already have an account?{" "}
                 <Link
                   to="/login"
-                  className="text-[#2A166D] font-semibold hover:underline"
+                  className="text-[#D92B2B] font-semibold hover:underline"
                 >
                   Log in
                 </Link>
@@ -158,7 +157,7 @@ const Register = () => {
                   value={formData.companyName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2A166D] focus:border-transparent text-gray-900 placeholder:text-gray-500"
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D92B2B] focus:border-transparent text-gray-900 placeholder:text-gray-500"
                 />
 
                 <input
@@ -169,7 +168,7 @@ const Register = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2A166D] focus:border-transparent text-gray-900 placeholder:text-gray-500"
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D92B2B] focus:border-transparent text-gray-900 placeholder:text-gray-500"
                 />
 
                 <input
@@ -180,7 +179,7 @@ const Register = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2A166D] focus:border-transparent text-gray-900 placeholder:text-gray-500"
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D92B2B] focus:border-transparent text-gray-900 placeholder:text-gray-500"
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -206,7 +205,7 @@ const Register = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2A166D] focus:border-transparent text-gray-900 placeholder:text-gray-500"
+                    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D92B2B] focus:border-transparent text-gray-900 placeholder:text-gray-500"
                   />
                 </div>
 
@@ -217,7 +216,7 @@ const Register = () => {
                   autoComplete="street-address"
                   value={formData.address}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2A166D] focus:border-transparent text-gray-900 placeholder:text-gray-500"
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D92B2B] focus:border-transparent text-gray-900 placeholder:text-gray-500"
                 />
 
                 <input
@@ -227,20 +226,24 @@ const Register = () => {
                   autoComplete="address-level2"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2A166D] focus:border-transparent text-gray-900 placeholder:text-gray-500"
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D92B2B] focus:border-transparent text-gray-900 placeholder:text-gray-500"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3! rounded text-base font-semibold mt-2
-                    ${
-                      loading
-                        ? "bg-gray-400 text-white cursor-not-allowed"
-                        : "bg-[#2A166D] text-white hover:bg-[#3a1c9a] shadow-md"
-                    }
+                className={`w-full py-3! rounded-lg text-base font-semibold mt-2
+                    ${loading
+                    ? "bg-gray-400 text-white cursor-not-allowed"
+                    : "text-white shadow-md"
+                  }
                     transition-all duration-200`}
+                style={{
+                  background: loading
+                    ? "#9CA3AF"
+                    : "linear-gradient(135deg, #750B0B, #D92B2B, #C22525)",
+                }}
               >
                 {loading ? "Creating Account..." : "Sign Up"}
               </button>

@@ -6,8 +6,8 @@ export default function SignIn() {
   return (
     <>
       <PageMeta
-        title="AL - MAMOORAH INTERNATIONAL PVT LTD SignIn Dashboard"
-        description="This is Admin SignIn Dashboard page for AL - MAMOORAH INTERNATIONAL PVT LTD"
+        title="ZEB Travels & Traders Pvt Ltd SignIn Dashboard"
+        description="This is Admin SignIn Dashboard page for ZEB Travels & Traders Pvt Ltd"
       />
       <AuthLayout>
         <SignInForm />

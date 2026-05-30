@@ -241,6 +241,7 @@ const DashboardLayout = ({ user, handleLogout }) => {
         item.label.toLowerCase().includes(q) ||
         item.subItems?.some((s) => s.label.toLowerCase().includes(q)),
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery]);
 
   const isActive = (path) => location.pathname + location.search === path;
@@ -747,7 +748,7 @@ const DashboardLayout = ({ user, handleLogout }) => {
                         borderRadius: "8px",
                         background: user?.logo
                           ? `url(${user.logo}) center/cover`
-                          : "linear-gradient(135deg,#21397C 0%,#2CA3B4 100%)",
+                          : theme.colors.primary,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",

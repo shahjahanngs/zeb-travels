@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../api/axios";
 import { toast } from "react-toastify";
 import logo from "../../../assets/images/logo.png";
-import bg from "../../../assets/images/madina.webp";
+import bg from "../../../assets/images/madina.jpg";
 import { theme } from "../../../theme/theme.js";
 const Login = ({ onLogin }) => {
   const navigate = useNavigate();
@@ -78,6 +78,7 @@ const Login = ({ onLogin }) => {
       setAutoLoginTriggered(true);
       performLogin(prefills);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoLoginTriggered]);
 
   const handleForgotPassword = async (e) => {
@@ -110,11 +111,9 @@ const Login = ({ onLogin }) => {
         id="login"
         className="min-h-screen flex items-center justify-center p-4 sm:p-5"
         style={{
-          // Main Background with Image and Dark Overlay
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url(${bg})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.50)), url(${bg})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundPosition: "bottom",
         }}
       >
         <div className="flex flex-col md:flex-row w-full max-w-250 bg-white rounded-2xl shadow-2xl overflow-hidden min-h-140">
@@ -138,16 +137,13 @@ const Login = ({ onLogin }) => {
                 </svg>
               </div>
               <div className="text-center mb-15 mt-10 space-y-4">
-                {/* <div className="inline-block px-4 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white/70 text-[10px] uppercase tracking-[0.4em] font-bold">
-            Established Excellence
-          </div> */}
-                <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tighter uppercase italic">
-                  AL - MAMOORAH <span className="text-white"></span>
+                <h1 className="max-w-80 text-3xl md:text-4xl font-extrabold text-white tracking-tighter">
+                  ZEB Travels & Traders
                 </h1>
                 <div className="flex items-center justify-center gap-4">
                   <div className="h-px w-12 bg-linear-to-r from-transparent to-white/50"></div>
                   <p className="text-sm text-gray-300 font-medium tracking-widest uppercase">
-                    INTERNATIONAL PVT LTD
+                    PVT LTD
                   </p>
                   <div className="h-px w-12 bg-linear-to-l from-transparent to-white/50"></div>
                 </div>
@@ -158,7 +154,7 @@ const Login = ({ onLogin }) => {
           {/* RIGHT PANEL - Login Form */}
           <div className="flex-1 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white">
             <div className="mb-5">
-              <img src={logo} alt="logo" className="w-60 object-contain" />
+              <img src={logo} alt="logo" className="w-44 object-contain" />
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2 tracking-tight text-center md:text-left">
@@ -191,7 +187,7 @@ const Login = ({ onLogin }) => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 border-2 border-slate-200 rounded-xl text-sm text-slate-900 bg-white focus:border-[#2CA3B4] outline-none transition-all"
+                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 border-2 border-slate-200 rounded-xl text-sm text-slate-900 bg-white focus:border-[#D92B2B] outline-none transition-all"
                   />
                 </div>
               </div>
@@ -218,7 +214,7 @@ const Login = ({ onLogin }) => {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 border-2 border-slate-200 rounded-xl text-sm text-slate-900 bg-white focus:border-[#2CA3B4] outline-none transition-all"
+                    className="w-full pl-10 pr-3 py-2.5 sm:py-3 border-2 border-slate-200 rounded-xl text-sm text-slate-900 bg-white focus:border-[#D92B2B] outline-none transition-all"
                   />
                 </div>
               </div>
@@ -227,14 +223,14 @@ const Login = ({ onLogin }) => {
                 <label className="flex items-center gap-2 text-sm text-slate-600 cursor-pointer">
                   <input
                     type="checkbox"
-                    className="w-4 h-4 rounded border-slate-300 text-[#21397C] focus:ring-[#21397C]"
+                    className="w-4 h-4 rounded border-slate-300 text-[#D92B2B] focus:ring-[#D92B2B]"
                   />
                   Remember me
                 </label>
                 <button
                   type="button"
                   onClick={() => setShowForgot(true)}
-                  className="text-sm font-medium text-[#2CA3B4] hover:text-[#21397C] transition-colors"
+                  className="text-sm font-medium text-[#D92B2B] hover:text-[#fc7e7e] transition-colors"
                 >
                   Forgot password?
                 </button>
@@ -261,7 +257,7 @@ const Login = ({ onLogin }) => {
                 Don't have an account?{" "}
                 <Link
                   to="/auth/register"
-                  className="font-medium text-[#2CA3B4] hover:text-[#21397C] transition-colors"
+                  className="font-medium text-[#D92B2B] hover:text-[#fc7e7e] transition-colors"
                 >
                   Create account
                 </Link>
@@ -302,12 +298,12 @@ const Login = ({ onLogin }) => {
                 value={forgotEmail}
                 onChange={(e) => setForgotEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl text-sm mb-4 outline-none focus:border-[#2CA3B4]"
+                className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl text-sm mb-4 outline-none focus:border-[#D92B2B]"
               />
               <button
                 type="submit"
                 disabled={forgotLoading}
-                className="w-full py-3 bg-linear-to-r from-[#21397C] to-[#2CA3B4] text-white font-semibold rounded-xl"
+                className="w-full py-3 bg-linear-to-r from-[#D92B2B] to-[#C22525] text-white font-semibold rounded-xl"
               >
                 {forgotLoading ? "Sending..." : "Send Reset Link"}
               </button>

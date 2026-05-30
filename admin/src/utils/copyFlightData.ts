@@ -1,5 +1,3 @@
-// ── Shared types ──────────────────────────────────────────────────────────────
-
 export interface FlightDetail {
   dep_date?: string;
   flight_date?: string;
@@ -62,12 +60,12 @@ const COPY_FOOTER = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*
 
 =======================
 
-AL - MAMOORAH INTERNATIONAL PVT LTD
+ZEB Travels & Traders Pvt Ltd
 
-Mobile: 0300-5008889
+Mobile: 0313-5757057
 Address: Shop No 03 G Floor G 13 Services Road G 12 Islamabad.
-Ptcl: 0300-5008889
-Website: almamoorah.com`;
+Ptcl: 0313-5757057
+Website: zebtravel.com`;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 

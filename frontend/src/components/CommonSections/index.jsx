@@ -3,12 +3,12 @@ import ServicesSection from "../ServicesSection";
 import ChooseUsSection from "../ChooseUsSection";
 import SpecialOffer from "../SpecialOffer/SpecialOffer";
 
-export default function CommonSections() {
+export default function CommonSections({ user }) {
   return (
     <>
-      <AboutSection />
-      <SpecialOffer />
-      <ServicesSection />
+      <AboutSection user={user} />
+      <SpecialOffer user={user} />
+      <ServicesSection user={user} />
       <ChooseUsSection />
     </>
   );

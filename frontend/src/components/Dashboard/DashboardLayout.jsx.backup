@@ -335,7 +335,7 @@ const DashboardLayout = ({ user, handleLogout }) => {
             {sidebarOpen ? <FaTimes /> : <FaBars />}
           </button>
           {/* <div className="header-title">
-            <h1>Dashboard - AL - MAMOORAH INTERNATIONAL PVT LTD</h1> 
+            <h1>Dashboard - ZEB Travels & Traders Pvt Ltd</h1> 
           </div> */}
           <div
             className="header-user"

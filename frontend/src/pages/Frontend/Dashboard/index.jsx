@@ -147,6 +147,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchDashboardData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const cards = [
@@ -247,7 +248,7 @@ const Dashboard = () => {
     color = { bg: "bg-blue-50", text: "text-blue-600" },
   }) => {
     return (
-      <div className="bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+      <div className="bg-white rounded-[1.7rem] border border-slate-200/80 p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
         {/* Top Header Section */}
         <div className="flex items-start justify-between mb-4">
           <div className="space-y-1">
@@ -359,11 +360,10 @@ const Dashboard = () => {
           {offers.map((offer, idx) => (
             <div
               key={offer._id || idx}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                idx === currentIndex
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-full"
-              }`}
+              className={`absolute inset-0 transition-all duration-700 ease-in-out ${idx === currentIndex
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-full"
+                }`}
               style={{
                 transform:
                   idx === currentIndex ? "translateX(0)" : "translateX(100%)",
@@ -429,11 +429,10 @@ const Dashboard = () => {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  idx === currentIndex
-                    ? "bg-white w-4"
-                    : "bg-white/50 hover:bg-white/80"
-                }`}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
+                  ? "bg-white w-4"
+                  : "bg-white/50 hover:bg-white/80"
+                  }`}
               />
             ))}
           </div>
@@ -443,7 +442,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="overflow-hidden flex flex-col p-4 md:p-6">
+    <div className="overflow-hidden flex flex-col p-0 md:p-6">
       <TopBar title={"Manage your Agent Dashboard"} />
 
       {/* Scrollable content area with custom scrollbar */}
@@ -499,46 +498,49 @@ const Dashboard = () => {
         </div> */}
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5 pb-4">
+        <div className="grid grid-cols-1 gap-3.5 sm:gap-5 pb-4 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => (
             <Link
               to={card.link}
               key={index}
-              className={`group relative overflow-hidden p-5 rounded-2xl border bg-white hover:shadow-2xl ${card.colors.shadow} border-slate-100 transition-all duration-300`}
+              className="group relative overflow-hidden rounded-[1.7rem] border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-lg"
             >
+              {/* Soft Background Glow */}
               <div
-                className={`absolute top-0 right-0 w-[18%] h-[18%] ${card.colors.corner1} 
-                           rounded-bl-[100%] transition-all duration-500 
-                           group-hover:w-full group-hover:h-full group-hover:rounded-2xl`}
-              ></div>
+                className={`absolute -right-10 -top-10 h-28 w-28 rounded-full blur-2xl transition-all duration-500 group-hover:h-40 group-hover:w-40 ${card.colors.corner1}`}
+              />
 
               <div
-                className={`absolute bottom-0 left-0 w-[18%] h-[18%] ${card.colors.corner2} 
-                           rounded-tr-[100%] transition-all duration-500 
-                           group-hover:w-full group-hover:h-full group-hover:rounded-2xl`}
-              ></div>
+                className={`absolute -bottom-10 -left-10 h-28 w-28 rounded-full blur-2xl transition-all duration-500 group-hover:h-40 group-hover:w-40 ${card.colors.corner2}`}
+              />
 
               <div className="relative z-10">
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-4 ${card.style} group-hover:scale-110 transition`}
-                >
-                  {card.icon}
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <div
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl text-2xl shadow-sm transition duration-500 group-hover:scale-110 group-hover:rotate-3 ${card.style}`}
+                  >
+                    {card.icon}
+                  </div>
+
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-50 text-slate-400 transition group-hover:bg-slate-900 group-hover:text-white">
+                    <FaArrowRight className="-rotate-45 text-sm transition group-hover:rotate-0" />
+                  </div>
                 </div>
 
-                <h3
-                  className={`text-lg font-bold text-slate-800 mb-1.5 ${card.colors.hover} transition-colors`}
-                >
+                <h3 className="mb-2 text-xl font-extrabold tracking-tight text-slate-900 transition group-hover:text-slate-950">
                   {card.title}
                 </h3>
 
-                <p className="text-slate-400 text-xs mb-3">
+                <p className="min-h-10 text-sm leading-6 text-slate-500">
                   {card.description}
                 </p>
 
-                <div
-                  className={`flex items-center ${card.colors.cta} font-semibold text-xs opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300`}
-                >
-                  Manage Now <FaArrowRight className="ml-1.5 text-[10px]" />
+                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className={`text-sm font-bold ${card.colors.cta}`}>
+                    Manage Now
+                  </span>
+
+                  <span className="h-2 w-2 rounded-full bg-slate-300 transition-all duration-300 ease-linear group-hover:w-8 group-hover:bg-slate-900" />
                 </div>
               </div>
             </Link>

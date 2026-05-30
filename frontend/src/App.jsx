@@ -1,9 +1,16 @@
 import { useEffect } from "react";
 import Routes from './pages/Routes.jsx'
+import { useLocation } from "react-router-dom";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function App() {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
     useEffect(() => {
         console.log("🚀 App mounted. Setting up inactivity timer...");
         const INACTIVITY_LIMIT = 7 * 60 * 1000; // 7 minutes

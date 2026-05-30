@@ -106,8 +106,8 @@ export default function Home() {
   return (
     <>
       <PageMeta
-        title="Dashboard | AlmamorahTravel"
-        description="Dashboard overview for AlmamorahTravel"
+        title="Dashboard | ZEB Travels & Traders Pvt Ltd"
+        description="Dashboard overview for ZEB Travels & Traders Pvt Ltd"
       />
 
       {/* Header Section */}
@@ -181,64 +181,136 @@ export default function Home() {
         </button>
       </div>
 
-      {/* 🚀 NEW: Quick Access Menu Grid Section */}
+      {/* Quick Access Menu Grid Section */}
       <div className="mb-8">
-        <h2 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">
-          Quick Access Menu
-        </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-lg font-extrabold tracking-tight text-slate-900">
+              Quick Access Menu
+            </h2>
+            <p className="mt-1 text-sm text-slate-500">
+              Manage important travel modules quickly
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {[
-            { label: "Umrah Packages", to: "/create-package", color: "bg-rose-500 hover:bg-rose-600", icon: <IdentificationIcon className="w-6 h-6" /> },
-            { label: "Create Sector Group", to: "/sector", color: "bg-blue-500 hover:bg-blue-600", icon: <PlusIcon className="w-6 h-6" /> },
-            { label: "Add Airline", to: "/airline", color: "bg-sky-500 hover:bg-sky-600", icon: <GlobeAltIcon className="w-6 h-6" /> },
-            { label: "Add Ticket Group", to: "/group-ticketing/create", color: "bg-emerald-500 hover:bg-emerald-600", icon: <RectangleStackIcon className="w-6 h-6" /> },
-            { label: "All Bookings", to: "/all-bookings", color: "bg-violet-500 hover:bg-violet-600", icon: <DocumentTextIcon className="w-6 h-6" /> },
-            { label: "Manage Sectors", to: "/manage-sectors", color: "bg-amber-500 hover:bg-amber-600", icon: <Cog6ToothIcon className="w-6 h-6" /> },
-            { label: "Agencies List", to: "/registered-agencies", color: "bg-teal-500 hover:bg-teal-600", icon: <UsersIcon className="w-6 h-6" /> },
-            { label: "Add Bank Details", to: "/add-bank", color: "bg-indigo-500 hover:bg-indigo-600", icon: <BanknotesIcon className="w-6 h-6" /> },
-            { label: "Group Ticketing", to: "/group-ticketing", color: "bg-orange-500 hover:bg-orange-600", icon: <ShieldCheckIcon className="w-6 h-6" /> },
-            { label: "View Accounts", to: "/view-accounts", color: "bg-cyan-600 hover:bg-cyan-700", icon: <BanknotesIcon className="w-6 h-6" /> },
-            { label: "API Groups", to: "/api-groups", color: "bg-pink-500 hover:bg-pink-600", icon: <Square3Stack3DIcon className="w-6 h-6" /> },
-            { label: "Local Groups", to: "/group-ticketing", color: "bg-slate-600 hover:bg-slate-700", icon: <RectangleStackIcon className="w-6 h-6" /> },
-          ].map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={`flex flex-col items-center justify-center gap-2 rounded-xl ${item.color} p-4 text-white shadow-sm hover:scale-[1.03] transition-all duration-200 text-center`}
-            >
-              <div className="p-1.5 bg-white/10 rounded-lg">
-                {item.icon}
-              </div>
-              <span className="text-xs font-semibold leading-tight tracking-wide">{item.label}</span>
-            </Link>
-          ))}
+            { label: "Create Umrah Package", to: "/create-package", color: "rose", icon: <IdentificationIcon className="h-6 w-6" /> },
+            { label: "Create Sector Group", to: "/sector", color: "blue", icon: <PlusIcon className="h-6 w-6" /> },
+            { label: "Add Airline", to: "/airline", color: "sky", icon: <GlobeAltIcon className="h-6 w-6" /> },
+            { label: "Add Group Ticketing", to: "/group-ticketing/create", color: "emerald", icon: <RectangleStackIcon className="h-6 w-6" /> },
+            { label: "All Bookings", to: "/all-bookings", color: "violet", icon: <DocumentTextIcon className="h-6 w-6" /> },
+            { label: "Manage Sectors", to: "/manage-sectors", color: "amber", icon: <Cog6ToothIcon className="h-6 w-6" /> },
+            { label: "Agencies List", to: "/registered-agencies", color: "teal", icon: <UsersIcon className="h-6 w-6" /> },
+            { label: "Add Bank Details", to: "/add-bank", color: "indigo", icon: <BanknotesIcon className="h-6 w-6" /> },
+            { label: "View Group Ticketing", to: "/group-ticketing", color: "orange", icon: <ShieldCheckIcon className="h-6 w-6" /> },
+            { label: "View Accounts", to: "/view-accounts", color: "cyan", icon: <BanknotesIcon className="h-6 w-6" /> },
+            { label: "API Groups", to: "/api-groups", color: "pink", icon: <Square3Stack3DIcon className="h-6 w-6" /> },
+            { label: "Local Groups", to: "/group-ticketing", color: "slate", icon: <RectangleStackIcon className="h-6 w-6" /> },
+          ].map((item) => {
+            const colorClasses = {
+              rose: "bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white",
+              blue: "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
+              sky: "bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white",
+              emerald: "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white",
+              violet: "bg-violet-50 text-violet-600 group-hover:bg-violet-600 group-hover:text-white",
+              amber: "bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white",
+              teal: "bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white",
+              indigo: "bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white",
+              orange: "bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white",
+              cyan: "bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white",
+              pink: "bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white",
+              slate: "bg-slate-100 text-slate-600 group-hover:bg-slate-700 group-hover:text-white",
+            };
+
+            return (
+              <Link
+                key={`${item.label}-${item.to}`}
+                to={item.to}
+                className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-slate-50 transition-all duration-500 group-hover:scale-[2.2]" />
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div
+                    className={`mb-3 flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 ${colorClasses[item.color]}`}
+                  >
+                    {item.icon}
+                  </div>
+
+                  <span className="text-xs font-extrabold leading-tight text-slate-800 transition group-hover:text-slate-950">
+                    {item.label}
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
 
       {/* Top Cards Section (Agents & Index Cards) */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mb-6">
-        {/* Agents Card */}
-        <div className="bg-linear-to-br from-teal-500 to-emerald-600 dark:from-teal-600 dark:to-emerald-700 rounded-lg p-6 text-white relative shadow-lg">
-          <div className="absolute top-6 right-6 opacity-20">
-            <UsersIcon className="w-16 h-16" />
+      <div className="grid grid-cols-1 gap-5 mb-6 md:grid-cols-2">
+        {/* Agents */}
+        <div className="group relative overflow-hidden rounded-[1.7rem] border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 hover:shadow-lg">
+          <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-emerald-100 transition-all duration-500 group-hover:scale-150" />
+
+          <div className="relative z-10">
+            <div className="mb-5 flex items-center justify-between">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600">
+                <UsersIcon className="w-7 h-7" />
+              </div>
+
+              <ArrowRightIcon className="w-5 h-5 text-slate-400 transition group-hover:translate-x-1 group-hover:text-emerald-600" />
+            </div>
+
+            <h3 className="text-2xl font-extrabold text-slate-900">
+              Agents
+            </h3>
+
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Manage registered agencies, monitor activity and access all agent records.
+            </p>
+
+            <Link
+              to="/registered-agencies"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-5 py-2.5 text-sm font-bold text-emerald-600 transition hover:bg-emerald-100"
+            >
+              View Agents
+              <ArrowRightIcon className="w-4 h-4" />
+            </Link>
           </div>
-          <h3 className="text-xl font-semibold mb-2">Agents</h3>
-          <p className="text-teal-100 mb-4 text-sm">My Agents</p>
-          <Link to="/registered-agencies" className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded text-sm transition-colors">
-            Go to list <ArrowRightIcon className="w-3.5 h-3.5" />
-          </Link>
         </div>
 
         {/* Index Cards */}
-        <div className="bg-linear-to-br from-slate-500 to-blue-600 dark:from-slate-600 dark:to-blue-700 rounded-lg p-6 text-white relative shadow-lg">
-          <div className="absolute top-6 right-6 opacity-20">
-            <IdentificationIcon className="w-16 h-16" />
+        <div className="group relative overflow-hidden rounded-[1.7rem] border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 hover:shadow-lg">
+          <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-blue-100 transition-all duration-500 group-hover:scale-150" />
+
+          <div className="relative z-10">
+            <div className="mb-5 flex items-center justify-between">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-600">
+                <IdentificationIcon className="w-7 h-7" />
+              </div>
+
+              <ArrowRightIcon className="w-5 h-5 text-slate-400 transition group-hover:translate-x-1 group-hover:text-blue-600" />
+            </div>
+
+            <h3 className="text-2xl font-extrabold text-slate-900">
+              Index Cards
+            </h3>
+
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Access special offers, promotional content and index card management.
+            </p>
+
+            <button
+              onClick={() => navigate("/special-offers")}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-5 py-2.5 text-sm font-bold text-blue-600 transition hover:bg-blue-100"
+            >
+              View Cards
+              <ArrowRightIcon className="w-4 h-4" />
+            </button>
           </div>
-          <h3 className="text-xl font-semibold mb-2">Index Cards</h3>
-          <p className="text-slate-100 mb-4 text-sm">Index Cards</p>
-          <button onClick={() => { navigate("/special-offers") }} className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded text-sm transition-colors">
-            Go to list <ArrowRightIcon className="w-3.5 h-3.5" />
-          </button>
         </div>
       </div>
 
@@ -249,8 +321,8 @@ export default function Home() {
 
       {/* View Sections */}
       <div className="grid grid-cols-1 gap-4 mb-6">
-        <Link to="all-groups" className="flex justify-center items-center bg-linear-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold py-4 px-6 rounded-lg transition-all shadow-lg text-lg">
-          View All Groups
+        <Link to="all-groups" className="flex justify-center items-center gap-2.5 bg-linear-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold py-4 px-6 rounded-2xl transition-all shadow-lg text-lg">
+          View All Groups <ArrowRightIcon className="w-4 h-4" />
         </Link>
       </div>
 

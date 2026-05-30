@@ -86,7 +86,7 @@ export default function PublicUmrahPackages({
         return `${flight.flightNo} *${g.packageName}* ${flight.sectorFrom} → ${flight.sectorTo}..... *PKR ${price.toLocaleString()}*`;
       })
       .filter(Boolean);
-    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nAL - MAMOORAH INTERNATIONAL PVT LTD`;
+    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nZEB Travels & Traders Pvt Ltd`;
     return [headerText, ...lines, "=======================", footer].join("\n");
   };
 
@@ -113,7 +113,7 @@ export default function PublicUmrahPackages({
       ...Object.values(group.rooms || {}).filter(Boolean),
     );
     const price = isFinite(minPrice) ? minPrice : 0;
-    const text = `${flight.flightNo} *${group.packageName}* ${flight.sectorFrom} → ${flight.sectorTo}..... *PKR ${price.toLocaleString()}*\n=======================\n*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nAL - MAMOORAH INTERNATIONAL PVT LTD`;
+    const text = `${flight.flightNo} *${group.packageName}* ${flight.sectorFrom} → ${flight.sectorTo}..... *PKR ${price.toLocaleString()}*\n=======================\n*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nZEB Travels & Traders Pvt Ltd`;
     try {
       await navigator.clipboard.writeText(text);
     } catch {

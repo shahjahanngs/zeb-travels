@@ -623,7 +623,7 @@ export const createBooking = async (req, res) => {
       sabaoonBookingStatus: isSabaoonGroup ? "pending" : "not_applicable",
       supplierName: isSabaoonGroup
         ? "Sabaoon"
-        : "AL - MAMOORAH INTERNATIONAL PVT LTD",
+        : "ZEB Travels & Traders Pvt Ltd",
     });
 
     // ─── Call Sabaoon booking API for external (Sabaoon) groups ───

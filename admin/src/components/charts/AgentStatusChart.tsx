@@ -20,7 +20,7 @@ export default function AgentStatusChart() {
       setIsDark(document.documentElement.classList.contains("dark"));
     };
     checkTheme();
-    
+
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -43,14 +43,14 @@ export default function AgentStatusChart() {
           Authorization: `Bearer ${token}`,
         },
       });
-      
+
       if (response.data.success) {
         const users = response.data.data as User[];
         const agencies = users.filter((user) => user.role === "Agency");
-        
+
         const active = agencies.filter((user) => user.status === "Active").length;
         const inactive = agencies.filter((user) => user.status === "Inactive").length;
-        
+
         setActiveCount(active);
         setInactiveCount(inactive);
       }
@@ -147,7 +147,7 @@ export default function AgentStatusChart() {
   if (loading) {
     return (
       <div className="rounded-lg border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
-        <div className="flex justify-center items-center h-[280px]">
+        <div className="flex justify-center items-center h-70">
           <div className="text-gray-500 dark:text-gray-400">Loading agent statistics...</div>
         </div>
       </div>
@@ -155,7 +155,7 @@ export default function AgentStatusChart() {
   }
 
   return (
-    <div className="rounded-lg border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div className="rounded-[1.7rem] border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="mb-4">
         <h4 className="text-xl font-semibold text-black dark:text-white">
           Agent Status Overview

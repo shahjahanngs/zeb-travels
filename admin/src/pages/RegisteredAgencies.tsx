@@ -70,7 +70,7 @@ const RegisteredAgencies = () => {
     const currentEntries = filteredUsers.slice(indexOfFirstEntry, indexOfLastEntry);
     const totalPages = Math.ceil(filteredUsers.length / entriesPerPage);
 
-    const frontendUrl = import.meta.env.VITE_FRONTEND_URL || "https://almamoorah.com";
+    const frontendUrl = import.meta.env.VITE_FRONTEND_URL || "https://zebtravel.com";
     // const frontendUrl = "http://localhost:5173";
 
     useEffect(() => {

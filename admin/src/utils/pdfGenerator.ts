@@ -324,21 +324,21 @@ const getAgencyName = (booking: Booking): string => {
   if (typeof booking.userId === "object" && booking.userId?.companyName) {
     return booking.userId.companyName;
   }
-  return "AL - MAMOORAH INTERNATIONAL PVT LTD";
+  return "ZEB Travels & Traders Pvt Ltd";
 };
 
 const getName = (booking: Booking): string => {
   if (typeof booking.userId === "object" && booking.userId?.name) {
     return booking.userId.name;
   }
-  return "AL - MAMOORAH INTERNATIONAL PVT LTD";
+  return "ZEB Travels & Traders Pvt Ltd";
 };
 
 const getPhone = (booking: Booking): string => {
   if (typeof booking.userId === "object" && booking.userId?.phone) {
     return booking.userId.phone;
   }
-  return "AL - MAMOORAH INTERNATIONAL PVT LTD";
+  return "ZEB Travels & Traders Pvt Ltd";
 };
 
 const sanitizeFilename = (str: string): string => {

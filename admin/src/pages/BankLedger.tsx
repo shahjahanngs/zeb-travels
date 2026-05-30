@@ -156,16 +156,16 @@ const BankLedger = () => {
       // Add Company Title
       doc.setFont("helvetica", "bold");
       doc.setFontSize(14);
-      doc.text("AL - MAMOORAH INTERNATIONAL PVT LTD", textStartX, headerStartY + 5);
+      doc.text("ZEB Travels & Traders Pvt Ltd", textStartX, headerStartY + 5);
 
       // Add Phone & Email
       doc.setFont("helvetica", "normal");
       doc.setFontSize(9);
       doc.setTextColor(50, 50, 50);
-      doc.text("Phone: 0300-5008889 | Email: meddina786@yahoo.com", textStartX, headerStartY + 11);
+      doc.text("Phone: 0313-5757057 | Email: Travelerwasim@gmail.com", textStartX, headerStartY + 11);
 
       // Add Address
-      doc.text("Address: Shop No 03 G-Floor G-13 Services Road G-12 Islamabad", textStartX, headerStartY + 16);
+      doc.text("Address: Office No: 2, Mezzanine Floor, Taimoor Chamber, Blue, Area G 6/2 Blue Area, Islamabad, 44000", textStartX, headerStartY + 16);
 
       // Add Horizontal Line
       const lineY = headerStartY + 25;
@@ -436,12 +436,12 @@ const BankLedger = () => {
                   className="w-30 h-30 object-contain"
                 />
                 <div>
-                  <h2 className="text-lg font-semibold">AL - MAMOORAH INTERNATIONAL PVT LTD</h2>
+                  <h2 className="text-lg font-semibold">ZEB Travels & Traders Pvt Ltd</h2>
                   <p className="text-sm">
-                    <span>Phone: 0300-5008889</span> | <span>Email: meddina786@yahoo.com</span>
+                    <span>Phone: 0313-5757057</span> | <span>Email: Travelerwasim@gmail.com</span>
                   </p>
                   <p className="text-sm">
-                    Office # 15-16, Ground Floor, Poonch House, Adamjee Road, Saddar, Rawalpindi, Pakistan
+                    Office No: 2, Mezzanine Floor, Taimoor Chamber, Blue, Area G 6/2 Blue Area, Islamabad, 44000
                   </p>
                 </div>
               </div>

@@ -658,7 +658,7 @@ const Ledger = () => {
       doc.setFontSize(14);
       doc.setTextColor(0, 0, 0);
       doc.text(
-        "AL - MAMOORAH INTERNATIONAL PVT LTD",
+        "ZEB Travels & Traders Pvt Ltd",
         textStartX,
         headerStartY + 5,
       );
@@ -668,7 +668,7 @@ const Ledger = () => {
       doc.setFontSize(9);
       doc.setTextColor(50, 50, 50);
       doc.text(
-        "Phone: 0300-5008889 | Email: meddina786@yahoo.com",
+        "Phone: 0313-5757057 | Email: Travelerwasim@gmail.com",
         textStartX,
         headerStartY + 11,
       );
@@ -950,11 +950,11 @@ const Ledger = () => {
               />
               <div>
                 <h2 className="text-lg font-semibold">
-                  AL - MAMOORAH INTERNATIONAL PVT LTD
+                  ZEB Travels & Traders Pvt Ltd
                 </h2>
                 <p className="text-sm">
-                  <span>Phone: 0300-5008889</span> |{" "}
-                  <span>Email: meddina786@yahoo.com</span>
+                  <span>Phone: 0313-5757057</span> |{" "}
+                  <span>Email: Travelerwasim@gmail.com</span>
                 </p>
                 <p className="text-sm">
                   Address: Shop No 03 G-Floor G-13 Services Road G-12 Islamabad

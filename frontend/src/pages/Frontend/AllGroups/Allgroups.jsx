@@ -857,8 +857,7 @@ export default function AllGroupsPackages({
         return labeledLegs.join("\n");
       })
       .filter(Boolean);
-    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nAlmamorah travels and tours\nMobile: 0300-5008889\nOffice # 15-16, Ground Floor, Poonch House,
-Adamjee Road, Saddar, Rawalpindi, Pakistan.\nPtcl: 0608340174\nWebsite: almamoorah.com`;
+    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nZEB Travels and Traders Pvt Ltd.\nMobile: 0313-5757057\nOffice No: 2, Mezzanine Floor, Taimoor Chamber, Blue, Area G 6/2 Blue Area, Islamabad, 44000.\nPtcl: 0608340174\nWebsite: zebtravel.com`;
     return [header, ...lines, "=======================", footer].join("\n");
   };
 
@@ -908,8 +907,7 @@ Adamjee Road, Saddar, Rawalpindi, Pakistan.\nPtcl: 0608340174\nWebsite: almamoor
     if (!legs.length) return "";
     const price =
       calculatePriceAfterMargin(group.price, group) ?? (group.price || 0);
-    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nAlmamorah travels and tours\nMobile: 0300-5008889\nOffice # 15-16, Ground Floor, Poonch House,
-Adamjee Road, Saddar, Rawalpindi, Pakistan.\nPtcl: 0608340174\nWebsite: almamoorah.com`;
+    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nZEB Travels and Traders Pvt Ltd.\nMobile: 0313-5757057\nOffice No: 2, Mezzanine Floor, Taimoor Chamber, Blue, Area G 6/2 Blue Area, Islamabad, 44000.\nPtcl: 0608340174\nWebsite: zebtravel.com`;
     let flightLines;
     if (legs.length === 1) {
       flightLines = `${legs[0]}..... *PKR ${price.toLocaleString()}*`;
@@ -988,8 +986,7 @@ Adamjee Road, Saddar, Rawalpindi, Pakistan.\nPtcl: 0608340174\nWebsite: almamoor
         return labeledLegs.join("\n");
       })
       .filter(Boolean);
-    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nAlmamorah travels and tours\nMobile: 0300-5008889\nOffice # 15-16, Ground Floor, Poonch House,
-Adamjee Road, Saddar, Rawalpindi, Pakistan.\nPtcl: 0608340174\nWebsite: almamoorah.com`;
+    const footer = `*ALL GROUPS ARE NON REFUNDABLE AND NON CHANGEABLE*\n=======================\nZEB Travels and Traders Pvt Ltd.\nMobile: 0313-5757057\nOffice No: 2, Mezzanine Floor, Taimoor Chamber, Blue, Area G 6/2 Blue Area, Islamabad, 44000.\nPtcl: 0608340174\nWebsite: zebtravel.com`;
     return [header, ...lines, "=======================", footer].join("\n");
   };
 

@@ -165,10 +165,10 @@ const getPasswordResetEmailHTML = (resetLink, userName) => {
             </ul>
           </div>
           <p>If you have any questions or concerns, please contact our support team.</p>
-          <p>Best regards,<br><strong>AL - MAMOORAH INTERNATIONAL PVT LTD Team</strong></p>
+          <p>Best regards,<br><strong>ZEB Travels & Traders Pvt Ltd Team</strong></p>
         </div>
         <div class="footer">
-          <p>&copy; ${new Date().getFullYear()} AL - MAMOORAH INTERNATIONAL PVT LTD. All rights reserved.</p>
+          <p>&copy; ${new Date().getFullYear()} ZEB Travels & Traders Pvt Ltd. All rights reserved.</p>
           <p>This is an automated message, please do not reply to this email.</p>
         </div>
       </div>
@@ -188,18 +188,18 @@ export const sendPasswordResetEmail = async (
     console.log(`📤 Attempting to send password reset email to: ${email}`);
 
     // Construct reset link
-    const frontendURL = process.env.FRONTEND_URL || "https://almamoorah.com";
+    const frontendURL = process.env.FRONTEND_URL || "https://zebtravel.com";
     const resetLink = `${frontendURL}/auth/forgot-password?token=${resetToken}&userId=${userId}`;
 
     const mailOptions = {
       from: {
-        name: "AL - MAMOORAH INTERNATIONAL PVT LTD",
+        name: "ZEB Travels & Traders Pvt Ltd",
         address: process.env.EMAIL_USER,
       },
       to: email,
-      subject: "Password Reset Request - AL - MAMOORAH INTERNATIONAL PVT LTD",
+      subject: "Password Reset Request - ZEB Travels & Traders Pvt Ltd",
       html: getPasswordResetEmailHTML(resetLink, userName),
-      text: `Hello ${userName},\n\nWe received a request to reset your password.\n\nPlease click the following link to reset your password:\n${resetLink}\n\nThis link will expire in 1 hour.\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nAL - MAMOORAH INTERNATIONAL PVT LTD Team`,
+      text: `Hello ${userName},\n\nWe received a request to reset your password.\n\nPlease click the following link to reset your password:\n${resetLink}\n\nThis link will expire in 1 hour.\n\nIf you didn't request this, please ignore this email.\n\nBest regards,\nZEB Travels & Traders Pvt Ltd Team`,
     };
 
     const info = await transporter.sendMail(mailOptions);
@@ -321,11 +321,11 @@ const getCredentialsEmailHTML = (
     <body>
       <div class="container">
         <div class="header">
-          <h1>🎉 Welcome to AL - MAMOORAH INTERNATIONAL PVT LTD!</h1>
+          <h1>🎉 Welcome to ZEB Travels & Traders Pvt Ltd!</h1>
         </div>
         <div class="content">
           <p>Hello <strong>${userName}</strong>,</p>
-          <p>Welcome to AL - MAMOORAH INTERNATIONAL PVT LTD! Your agency account has been created successfully.</p>
+          <p>Welcome to ZEB Travels & Traders Pvt Ltd! Your agency account has been created successfully.</p>
           <p><strong>Company:</strong> ${companyName}</p>
           
           <div class="credentials-box">
@@ -348,7 +348,7 @@ const getCredentialsEmailHTML = (
           </div>
 
           <div style="text-align: center;">
-            <a href="${process.env.FRONTEND_URL || "https://almamoorah.com"}/auth/login" class="button">Login to Your Account</a>
+            <a href="${process.env.FRONTEND_URL || "https://zebtravel.com"}/auth/login" class="button">Login to Your Account</a>
           </div>
 
           <div class="warning">
@@ -362,10 +362,10 @@ const getCredentialsEmailHTML = (
           </div>
 
           <p>If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
-          <p>Best regards,<br><strong>AL - MAMOORAH INTERNATIONAL PVT LTD Team</strong></p>
+          <p>Best regards,<br><strong>ZEB Travels & Traders Pvt Ltd Team</strong></p>
         </div>
         <div class="footer">
-          <p>&copy; ${new Date().getFullYear()} AL - MAMOORAH INTERNATIONAL PVT LTD. All rights reserved.</p>
+          <p>&copy; ${new Date().getFullYear()} ZEB Travels & Traders Pvt Ltd. All rights reserved.</p>
           <p>This is an automated message, please do not reply to this email.</p>
         </div>
       </div>
@@ -403,11 +403,11 @@ export const sendCredentialsEmail = async (
 
     const mailOptions = {
       from: {
-        name: "AL - MAMOORAH INTERNATIONAL PVT LTD",
+        name: "ZEB Travels & Traders Pvt Ltd",
         address: process.env.EMAIL_USER,
       },
       to: email,
-      subject: "Your Agent Credentials - AL - MAMOORAH INTERNATIONAL PVT LTD",
+      subject: "Your Agent Credentials - ZEB Travels & Traders Pvt Ltd",
       html: getCredentialsEmailHTML(
         agentCode,
         email,
@@ -415,7 +415,7 @@ export const sendCredentialsEmail = async (
         userName,
         companyName,
       ),
-      text: `Hello ${userName},\n\nWelcome to AL - MAMOORAH INTERNATIONAL PVT LTD! Your agency account has been created successfully.\n\nCompany: ${companyName}\n\nYour Login Credentials:\nAgent Code: ${agentCode}\nEmail: ${email}\nPassword: ${password}\n\nLogin URL: ${process.env.FRONTEND_URL || "https://almamoorah.com"}/auth/login\n\nSecurity Tips:\n- Keep your credentials safe and secure\n- Do not share your password with anyone\n- We recommend changing your password after first login\n\nBest regards,\nAL - MAMOORAH INTERNATIONAL PVT LTD`,
+      text: `Hello ${userName},\n\nWelcome to ZEB Travels & Traders Pvt Ltd! Your agency account has been created successfully.\n\nCompany: ${companyName}\n\nYour Login Credentials:\nAgent Code: ${agentCode}\nEmail: ${email}\nPassword: ${password}\n\nLogin URL: ${process.env.FRONTEND_URL || "https://zebtravel.com"}/auth/login\n\nSecurity Tips:\n- Keep your credentials safe and secure\n- Do not share your password with anyone\n- We recommend changing your password after first login\n\nBest regards,\nZEB Travels & Traders Pvt Ltd`,
     };
 
     const info = await transporter.sendMail(mailOptions);

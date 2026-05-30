@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/images/logo.png";
 import { CiMenuFries } from "react-icons/ci";
+import { FiLogIn } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { groupTypes } from "../../data/groupTypes";
 import {
@@ -30,9 +31,9 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const activeGroupTypes = searchParams
-    .getAll("group_type")
-    .map((g) => g.toLowerCase().trim());
+  // const activeGroupTypes = searchParams
+  //   .getAll("group_type")
+  //   .map((g) => g.toLowerCase().trim());
 
   // Use the exact group_type param value for active detection
   const currentGroupType = searchParams.get("group_type")?.trim() || "";
@@ -41,9 +42,9 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
     <header className="fixed w-full top-0 left-0 z-999">
       {/* GLASS NAV */}
       <div
-        className="backdrop-blur-xl border-b"
+        className="border-b bg-white"
         style={{
-          background: "rgba(255,255,255,0.9)",
+          // background: "rgba(255,255,255,0.9)",
           borderColor: theme.colors.border,
         }}
       >
@@ -54,7 +55,7 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
               <img
                 style={{ height: "60px" }}
                 src={logo}
-                className="w-full object-contain"
+                className="w-full object-contain pr-4"
                 alt="Logo"
               />
             </Link>
@@ -180,13 +181,13 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
               // Show login button when not logged in
               <Link
                 to="/login"
-                className="px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105"
+                className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
                 style={{
                   background: theme.colors.primary,
                   color: "#fff",
                 }}
               >
-                Sign In
+                Sign In <FiLogIn />
               </Link>
             )}
           </div>
@@ -196,9 +197,8 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
       {/* MOBILE MENU - Only show when logged in */}
       {isLoggedIn && (
         <div
-          className={`fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white shadow-xl transition-transform duration-300 z-998 ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white shadow-xl transition-transform duration-300 z-998 ${open ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="p-6 flex flex-col gap-4">
             {/* Close button at top of mobile menu */}
@@ -211,7 +211,7 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
                 key={group.value}
                 to={`/${group.path}`}
                 onClick={() => setOpen(false)}
-                className="text-lg border-b pb-2"
+                className="text-lg border-b border-b-neutral-200 pb-2"
                 style={{ color: theme.colors.textPrimary }}
               >
                 {group.label}
@@ -223,7 +223,7 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
                 navigate("/dashboard");
                 setOpen(false);
               }}
-              className="text-left text-lg border-b pb-2"
+              className="text-left text-lg border-b border-b-neutral-200 pb-2"
               style={{ color: theme.colors.textPrimary }}
             >
               Agent Dashboard
@@ -235,7 +235,7 @@ export default function OldHeader({ user, handleLogout, hasToken }) {
                   window.location.href = "/admin-portal/";
                   setOpen(false);
                 }}
-                className="text-left text-lg border-b pb-2"
+                className="text-left text-lg border-b border-b-neutral-200 pb-2"
                 style={{ color: theme.colors.textPrimary }}
               >
                 Admin Portal

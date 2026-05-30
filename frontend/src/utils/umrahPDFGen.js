@@ -82,7 +82,7 @@ export const generateUmrahPackagesPDF = async (packages, userInfo = null) => {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(16);
       doc.setTextColor(22, 78, 99);
-      doc.text("AL - MAMOORAH INTERNATIONAL PVT LTD", 30, yPosition);
+      doc.text("ZEB Travels & Traders Pvt Ltd", 30, yPosition);
 
       doc.setFontSize(9);
       doc.setFont("helvetica", "normal");
@@ -222,7 +222,7 @@ export const generateUmrahPackagesPDF = async (packages, userInfo = null) => {
         doc.setTextColor(148, 163, 184);
         doc.line(15, pageHeight - 12, pageWidth - 15, pageHeight - 12);
         doc.text(
-          "AL - MAMOORAH INTERNATIONAL PVT LTD | Premium Service | All Rights Reserved",
+          "ZEB Travels & Traders Pvt Ltd | Premium Service | All Rights Reserved",
           pageWidth / 2,
           pageHeight - 8,
           { align: "center" },

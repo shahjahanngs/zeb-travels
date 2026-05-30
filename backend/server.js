@@ -49,8 +49,8 @@ app.use(
       "http://localhost:5173",
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://almamoorah.com",
-      "https://www.almamoorah.com",
+      "https://zebtravel.com",
+      "https://www.zebtravel.com",
     ],
     credentials: true,
   }),
@@ -100,7 +100,7 @@ app.use(express.static(path.join(__dirname, "../frontend/dist")));
 app.use("/admin-portal", express.static(path.join(__dirname, "../admin/dist")));
 
 app.get("/", (req, res) => {
-  res.send("AL - MAMOORAH INTERNATIONAL PVT LTD API is running");
+  res.send("ZEB Travels & Traders Pvt Ltd API is running");
 });
 
 // Catch-all handler: serve React app's index.html for any non-API routes

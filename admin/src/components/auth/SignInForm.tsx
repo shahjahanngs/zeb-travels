@@ -40,7 +40,7 @@ export default function SignInForm() {
                 }
             } catch (error: any) {
                 setErrors({ email: "Invalid credentials" });
-                setError((error as any).response.data.message);
+                setError((error as any).response?.data?.message || "An error occurred");
                 console.error("Login error", error);
             } finally {
                 setSubmitting(false);
@@ -61,7 +61,7 @@ export default function SignInForm() {
             <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-xl">
                 {/* Logo */}
                 <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-20 h-20 p-2 bg-white rounded-full flex items-center justify-center">
                         <img src="/admin-portal/images/logo/logo.png" alt="Logo" className="rounded-full" />
                     </div>
                 </div>
