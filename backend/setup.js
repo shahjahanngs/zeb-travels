@@ -14,15 +14,15 @@ const setupAdmin = async () => {
     console.log(`MongoDB Connected: ${mongoose.connection.host}`.bgCyan.white);
 
     // Admin user details
-    const adminEmail = "meddina786@yahoo.com";
+    const adminEmail = "zeb@yahoo.com";
     const adminPassword = "123456";
 
     // Demo user details
-    const demoEmail = "demo@almamoorah.com";
+    const demoEmail = "demo@zeb.com";
     const demoPassword = "demo123";
 
     // system user
-    const systemEmail = "system@almamoorah.com";
+    const systemEmail = "system@zeb.com";
     const systemPassword = "system123";
 
     let adminCreated = false;
@@ -39,7 +39,7 @@ const setupAdmin = async () => {
       console.log("Creating admin user...".yellow);
 
       await Register.create({
-        name: "AlmamorahTravel Admin",
+        name: "Zeb Travels Admin",
         email: adminEmail,
         phone: "03355891694",
         password: adminPassword,
@@ -50,7 +50,7 @@ const setupAdmin = async () => {
         address: "Faisalabad",
         country: "Pakistan",
         city: "Faisalabad",
-        companyName: "AlmamorahTravel",
+        companyName: "Zeb Travels and Traders Pvt Ltd",
         consultant: "",
       });
 
