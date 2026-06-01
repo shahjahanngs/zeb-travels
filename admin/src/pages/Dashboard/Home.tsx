@@ -20,6 +20,57 @@ import { Modal } from "../../components/ui/modal";
 import CopySectorModal from "../../components/common/CopySectorModal";
 import { UnifiedGroup, buildCopyText, copyToClipboard } from "../../utils/copyFlightData";
 
+type MenuColor =
+  | "rose"
+  | "blue"
+  | "sky"
+  | "emerald"
+  | "violet"
+  | "amber"
+  | "teal"
+  | "indigo"
+  | "orange"
+  | "cyan"
+  | "pink"
+  | "slate";
+
+interface QuickAccessItem {
+  label: string;
+  to: string;
+  color: MenuColor;
+  icon: React.ReactNode;
+}
+
+const colorClasses: Record<MenuColor, string> = {
+  rose: "bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white",
+  blue: "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
+  sky: "bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white",
+  emerald: "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white",
+  violet: "bg-violet-50 text-violet-600 group-hover:bg-violet-600 group-hover:text-white",
+  amber: "bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white",
+  teal: "bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white",
+  indigo: "bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white",
+  orange: "bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white",
+  cyan: "bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white",
+  pink: "bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white",
+  slate: "bg-slate-100 text-slate-600 group-hover:bg-slate-700 group-hover:text-white",
+};
+
+const quickAccessItems: QuickAccessItem[] = [
+  { label: "Create Umrah Package", to: "/create-package", color: "rose", icon: <IdentificationIcon className="h-6 w-6" /> },
+  { label: "Create Sector Group", to: "/sector", color: "blue", icon: <PlusIcon className="h-6 w-6" /> },
+  { label: "Add Airline", to: "/airline", color: "sky", icon: <GlobeAltIcon className="h-6 w-6" /> },
+  { label: "Add Group Ticketing", to: "/group-ticketing/create", color: "emerald", icon: <RectangleStackIcon className="h-6 w-6" /> },
+  { label: "All Bookings", to: "/all-bookings", color: "violet", icon: <DocumentTextIcon className="h-6 w-6" /> },
+  { label: "Manage Sectors", to: "/manage-sectors", color: "amber", icon: <Cog6ToothIcon className="h-6 w-6" /> },
+  { label: "Agencies List", to: "/registered-agencies", color: "teal", icon: <UsersIcon className="h-6 w-6" /> },
+  { label: "Add Bank Details", to: "/add-bank", color: "indigo", icon: <BanknotesIcon className="h-6 w-6" /> },
+  { label: "View Group Ticketing", to: "/group-ticketing", color: "orange", icon: <ShieldCheckIcon className="h-6 w-6" /> },
+  { label: "View Accounts", to: "/view-accounts", color: "cyan", icon: <BanknotesIcon className="h-6 w-6" /> },
+  { label: "API Groups", to: "/api-groups", color: "pink", icon: <Square3Stack3DIcon className="h-6 w-6" /> },
+  { label: "Local Groups", to: "/group-ticketing", color: "slate", icon: <RectangleStackIcon className="h-6 w-6" /> },
+];
+
 export default function Home() {
   const navigate = useNavigate();
   const [unifiedGroups, setUnifiedGroups] = useState<UnifiedGroup[]>([]);
@@ -195,57 +246,27 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-          {[
-            { label: "Create Umrah Package", to: "/create-package", color: "rose", icon: <IdentificationIcon className="h-6 w-6" /> },
-            { label: "Create Sector Group", to: "/sector", color: "blue", icon: <PlusIcon className="h-6 w-6" /> },
-            { label: "Add Airline", to: "/airline", color: "sky", icon: <GlobeAltIcon className="h-6 w-6" /> },
-            { label: "Add Group Ticketing", to: "/group-ticketing/create", color: "emerald", icon: <RectangleStackIcon className="h-6 w-6" /> },
-            { label: "All Bookings", to: "/all-bookings", color: "violet", icon: <DocumentTextIcon className="h-6 w-6" /> },
-            { label: "Manage Sectors", to: "/manage-sectors", color: "amber", icon: <Cog6ToothIcon className="h-6 w-6" /> },
-            { label: "Agencies List", to: "/registered-agencies", color: "teal", icon: <UsersIcon className="h-6 w-6" /> },
-            { label: "Add Bank Details", to: "/add-bank", color: "indigo", icon: <BanknotesIcon className="h-6 w-6" /> },
-            { label: "View Group Ticketing", to: "/group-ticketing", color: "orange", icon: <ShieldCheckIcon className="h-6 w-6" /> },
-            { label: "View Accounts", to: "/view-accounts", color: "cyan", icon: <BanknotesIcon className="h-6 w-6" /> },
-            { label: "API Groups", to: "/api-groups", color: "pink", icon: <Square3Stack3DIcon className="h-6 w-6" /> },
-            { label: "Local Groups", to: "/group-ticketing", color: "slate", icon: <RectangleStackIcon className="h-6 w-6" /> },
-          ].map((item) => {
-            const colorClasses = {
-              rose: "bg-rose-50 text-rose-600 group-hover:bg-rose-600 group-hover:text-white",
-              blue: "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
-              sky: "bg-sky-50 text-sky-600 group-hover:bg-sky-600 group-hover:text-white",
-              emerald: "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white",
-              violet: "bg-violet-50 text-violet-600 group-hover:bg-violet-600 group-hover:text-white",
-              amber: "bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white",
-              teal: "bg-teal-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white",
-              indigo: "bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white",
-              orange: "bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white",
-              cyan: "bg-cyan-50 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white",
-              pink: "bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white",
-              slate: "bg-slate-100 text-slate-600 group-hover:bg-slate-700 group-hover:text-white",
-            };
+          {quickAccessItems.map((item) => (
+            <Link
+              key={`${item.label}-${item.to}`}
+              to={item.to}
+              className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-slate-50 transition-all duration-500 group-hover:scale-[2.2]" />
 
-            return (
-              <Link
-                key={`${item.label}-${item.to}`}
-                to={item.to}
-                className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-slate-50 transition-all duration-500 group-hover:scale-[2.2]" />
-
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  <div
-                    className={`mb-3 flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 ${colorClasses[item.color]}`}
-                  >
-                    {item.icon}
-                  </div>
-
-                  <span className="text-xs font-extrabold leading-tight text-slate-800 transition group-hover:text-slate-950">
-                    {item.label}
-                  </span>
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <div
+                  className={`mb-3 flex h-12 w-12 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 ${colorClasses[item.color]}`}
+                >
+                  {item.icon}
                 </div>
-              </Link>
-            );
-          })}
+
+                <span className="text-xs font-extrabold leading-tight text-slate-800 transition group-hover:text-slate-950">
+                  {item.label}
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
 
